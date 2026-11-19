@@ -15,4 +15,4 @@ Why do the liveness/readiness probes target `/health` instead of `/predict`?
 ## 3. Autoscaling under load
 Your HPA scales at 40% CPU up to 8 pods. If request volume doubled, what would you expect to happen — and what happens once it reaches the maximum?
 
-> If the request volume doubled, I expect that Kubernetes would open up more pods in order to distribute the load. Once the CPU is at 100%, all 8 pods are up and it cannot open up anymore.
+> If the request volume doubled, I expect that Kubernetes would open up more pods in order to distribute the load. HPA add more pods when the utilization increases and can't add more than 8 pods.
